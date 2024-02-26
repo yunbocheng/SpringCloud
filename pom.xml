@@ -18,11 +18,12 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <junit.version>4.12</junit.version>
-    <lombok.version>1.18.10</lombok.version>
     <log4j.version>1.2.17</log4j.version>
     <mysql.version>8.0.27</mysql.version>
-    <druid.version>1.1.16</druid.version>
-    <mybatis.spring.boot.version>2.1.1</mybatis.spring.boot.version>
+    <druid.version>1.2.21</druid.version>
+    <lombok.version>1.18.20</lombok.version>
+    <mybatis-plus.version>3.5.2</mybatis-plus.version>
+    <jdbc-version>3.2.2</jdbc-version>
   </properties>
 
 
@@ -58,6 +59,39 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
+      <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>druid-spring-boot-starter</artifactId>
+        <version>${druid.version}</version>
+      </dependency>
+      <!-- MySQL依赖 -->
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>${mysql.version}</version>
+      </dependency>
+
+      <!-- JDBC -->
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-jdbc</artifactId>
+        <version>${jdbc-version}</version>
+      </dependency>
+
+      <!-- lombok依赖。简化实体类的编写 -->
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>${lombok.version}</version>
+      </dependency>
+
+      <!-- MyBatis-plus依赖，简化CRUD -->
+      <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-boot-starter</artifactId>
+        <version>${mybatis-plus.version}</version>
+      </dependency>
+
     </dependencies>
   </dependencyManagement>
 </project>

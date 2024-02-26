@@ -1,0 +1,58 @@
+server:
+  port: 8001
+
+spring:
+  application:
+    name: cloud-payment-service
+  datasource:
+    # 数据库链接驱动器（mysql8中使用驱动必须加 cj ）
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/whale_sea?characterEncoding=UTF-8&serverTimezone=GMT%2b8&useSSL=true
+    username: root
+    password: 567cybtfboys
+    # 数据库连接池
+    hikari:
+      # 连接池空闲链接的最小数量（不建议设置，默认是10）
+      # minimum-idle: 1
+      # 最大连接池链接数
+      maximum-pool-size: 30
+      auto-commit: true
+      # 超时时间：单位是毫秒
+      connection-timeout: 30000
+
+# mybatis-plus 配置
+mybatis-plus:
+  # mybatis-plus全局策略配置
+  global-config:
+    # 是否在控制台输出 mybatis-plus 的LOGO （默认值：true）
+    banner: true
+    # 是否使用  SqlRunner ,SqlRunner是操作数据库的一个工具类，对JDBC进行了很好的封装，默认为：false
+    enable-sql-runner: false
+    # mybatis-plus全局策略中DB策略配置
+    db-config:
+      # 配置全局默认主键类型。默认值：assign_id
+      id-type: assign_id
+      # 开启字段的验证策略。默认值：MOT_NULL
+      select-strategy: DEFAULT
+      insert-strategy: IGNORED
+      update-strategy: IGNORED
+  # 原生 mybatis 支持的配置，在这个下面可以使用 mybatis 中的属性进配置
+  configuration:
+    # 开启自动驼峰命名规则，sub_name(数据表字段) -> subName(实体属性)，默认值为：false
+    map-underscore-to-camel-case: true
+    # 设置 mybatis-plus 打印日志的形式
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  # xml文件路径信息(classpath代表的是 resources路径 )，默认值：["classpath*":/mapper/**/*.xml"]
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  # 设置设置别名时的包扫描路径信息。直接将类名作为别名，而不使用全限定名称
+  type-aliases-package: com/sea/whale/entity
+  # 启动时是否检查 MyBatis 的 xml 文件是否存在，默认不检查
+  check-config-location: false
+  # 指定 MyBatis-plus 的执行器，执行器有三种(SIMPLE、REUSE、BATCH)，默认为：SIMPLE
+  executor-type: simple
+  # 指定外部化 mybatis-plus 配置，通过该配置可以抽取配置，实现不同环境的配置部署
+  # configuration-properties: null
+
+
+
+
